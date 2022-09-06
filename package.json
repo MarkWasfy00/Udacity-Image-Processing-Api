@@ -9,7 +9,8 @@
     "cpy:views": "copyfiles -f src/views/*.pug dist/views",
     "cpy:env": "copyfiles -f ./.env dist",
     "build": "npx tsc && npm run cpy:images && npm run cpy:views && npm run cpy:env",
-    "jasmine": "npm run build && jasmine",
+    "build:prod": "npm run build && jasmine",
+    "preview": "node dist/index.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"
   },
