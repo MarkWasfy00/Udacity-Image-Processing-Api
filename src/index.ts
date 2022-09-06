@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import * as dotenv from "dotenv";
 import { apiRouter } from "./routes/api";
 import path from "path";
@@ -13,7 +13,7 @@ app.set("views", __dirname + "/views"); // sets the views folder path 🔹
 app.set("view engine", "pug"); // sets view engine to pug js (jade) 🔹
 
 // this is the main endpoint for the application that holds api application 🔹
-app.get("/", (_req, res) => {
+app.get("/", (_req: Request, res: Response): void => {
   res.status(200).render("index", {
     fullFolder: getImages(),
     thumbFolder: getThumbFolder(),
@@ -22,6 +22,6 @@ app.get("/", (_req, res) => {
 
 app.use("/api", apiRouter);
 
-app.listen(PORT, function () {
+app.listen(PORT, function (): void {
   console.log(`express has started on port ${PORT}`);
 });

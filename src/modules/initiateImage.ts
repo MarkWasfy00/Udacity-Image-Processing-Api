@@ -1,7 +1,7 @@
 import fse from "fs-extra";
 import { IMAGE_OUTPUT_FOLDER } from "../utils/ImageApiUtils";
 
-export const isAlreadyProcessed = async (filename: string, width: number, height: number) => {
+export const isAlreadyProcessed = async (filename: string, width: number, height: number): Promise<boolean | void> => {
   // checks if thumb folder is there 🔹
   const exists = await fse.pathExists(IMAGE_OUTPUT_FOLDER);
   // if exists it will search for the image if its already been processed 🔹
